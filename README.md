@@ -1,7 +1,9 @@
 # Fine-Tune-Stable-Diffusion
 Fine tuned the base Stable Diffusion model to generate Renaissance Style Portraits
 
-If you'd like to test or just generate images using our model, please follow the steps below.
+If you'd like to see our results, please navigate to the wiki section of this repo
+However,if you'd like to test our model or just generate images using it, follow the steps below.
+
 1) Create a base Stable diffusion Model
 ```python
 new_model = keras_cv.models.StableDiffusion(img_width=512, img_height=512)
