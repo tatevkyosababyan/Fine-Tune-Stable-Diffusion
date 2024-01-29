@@ -8,7 +8,7 @@ However,if you'd like to test our model or just generate images using it, follow
 ```python
 new_model = keras_cv.models.StableDiffusion(img_width=512, img_height=512)
  ```
-2) Load Weights from our h5 model:
+2) Load Weights from our h5 model which is hosted on Hugging Face [here](https://huggingface.co/morj/renaissance/blob/main/stable_diffusion_renaissance.h5):
 ```python
 new_model.diffusion_model.load_weights('/path/to/file/renaissance_model.h5')
 ```
