@@ -1,7 +1,7 @@
 # Fine-Tune-Stable-Diffusion
 Fine tuned the base Stable Diffusion model to generate Renaissance Style Portraits
 
-If you'd like to see our results, please navigate to the wiki section of this repo you can find ([here](https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/wiki))]
+If you'd like to see our results, please navigate to the wiki section of this repo you can find [here](https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/wiki))]
 However,if you'd like to test our model or just generate images using it, follow the steps below.
 
 1) Create a base Stable diffusion Model
