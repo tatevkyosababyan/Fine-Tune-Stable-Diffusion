@@ -1,5 +1,5 @@
 # Fine-Tune-Stable-Diffusion
-We succesfully fine tuned the base Stable Diffusion model to generate Renaissance Style Portraits!
+We successfully fine tuned the base Stable Diffusion model to generate Renaissance Style Portraits!
 
 If you'd like to see our process, results, or additional information regarding this project, please navigate to the Wiki section of this repository also available [here](https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/wiki).
 
@@ -13,7 +13,7 @@ new_model = keras_cv.models.StableDiffusion(img_width=512, img_height=512)
 ```python
 new_model.diffusion_model.load_weights('/path/to/file/renaissance_model.h5')
 ```
-3) Create a variable to hold the values of the to be generated image such as prompt, batch size, iterations, and seed
+3) Create a variable to hold the values of the to-be-generated image such as prompt, batch size, iterations, and seed
 ```python 
 img = new_model.text_to_image(
        prompt="A woman with an enigmatic smile against a dark background",
