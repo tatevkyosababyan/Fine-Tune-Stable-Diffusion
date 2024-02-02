@@ -1,19 +1,93 @@
-# Fine-Tune-Stable-Diffusion
-We successfully fine tuned the base Stable Diffusion model to generate Renaissance Style Portraits!
+# Fine-Tune-Stable-Diffusion to Generate Renaissance Style Portraits! 
+- Finetuned = 256x256px with a batch size of 4, for 577 epochs
+- Refined = 512x512 px, with a batch size of 1, for 72 epochs
+1. "A young man."
 
-If you'd like to see our process, results, or additional information regarding this project, please navigate to the Wiki section of this repository also available [here](https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/wiki).
 
-For those who would like to test out our model or just generate images using it, follow the steps below.
 
-1) Create a base Stable diffusion Model
+<center>
+
+| <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/young_man_base.png" width="256" height="256"> | <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/young_man_256.png" width="256" height="256"> | <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/young_man_512.png" width="256" height="256"> |
+| --- | --- | --- |
+| Baseline Stable Diffusion Model | Finetuned | Refined |
+
+</center>
+
+
+
+
+2. "A young woman with blue eyes against a dark background."
+
+
+
+| <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/woman_blue_eyes_base.png" width="256" height="256"> | <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/woman_with_blue_eyes_256.png" width="256" height="256"> | <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/woman_blue_eyes_512.png" width="256" height="256"> |
+| --- | --- | --- |
+| Baseline Stable Diffusion Model | Finetuned | Refined|
+
+
+
+3. "A woman against a dark background looking mysterious."
+
+
+
+| <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/woman_dark_background_base.png" width="256" height="256"> | <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/woman_mysterious_dark_background_256.png" width="256" height="256"> | <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/woman_dark_background512.png" width="256" height="256"> |
+| --- | --- | --- |
+| Baseline Stable Diffusion Model | Finetuned | Refined |
+
+
+4. "A beautiful horse running through a field."
+
+<div align="center">
+
+| <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/base_dziuk.png" width="256" height="256"> | <img src="https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/blob/main/Images/horse_512.png" width="256" height="256"> |
+| --- | --- |
+| Baseline Stable Diffusion Model |Refined |
+</div>
+
+- If you'd like to see our process, results, or additional information regarding this project, please navigate to the Wiki section of this repository also available [here](https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/wiki).
+
+**Model Details** 
+- Developed by: Martin Gasparyan and Tatev Kyosababyan
+- Model type: Diffusion-based text-to-image generative model
+- Model Description: This model can be used to generate and modify images based on text prompts. It is a Latent Diffusion Model that uses a fixed, pretrained text encoder (OpenCLIP-ViT/H) to generate high-quality - Reniassance portraits from textual prompts. This model uses the KerasCV implementation of stability.ai's text-to-image model, Stable Diffusion. 
+- License: CreativeML Open RAIL++-M License
+- Finetuned from model: stabilityai/stable-diffusion-2-1
+
+
+## To Generate your own Examples:
+
+1) Install Dependencies
+   ```python
+   !pip install keras-cv==0.6.0 -q
+   !pip install -U tensorflow -q
+   !pip install keras-core -q
+   ```
+2) Imports
+   ```python
+   from textwrap import wrap
+   import os
+   import keras_cv
+   import matplotlib.pyplot as plt
+   import numpy as np
+   import pandas as pd
+   import tensorflow as tf
+   import tensorflow.experimental.numpy as tnp
+   from keras_cv.models.stable_diffusion.clip_tokenizer import SimpleTokenizer
+   from keras_cv.models.stable_diffusion.diffusion_model import DiffusionModel
+   from keras_cv.models.stable_diffusion.image_encoder import ImageEncoder
+   from keras_cv.models.stable_diffusion.noise_scheduler import NoiseScheduler
+   from keras_cv.models.stable_diffusion.text_encoder import TextEncoder
+   from tensorflow import keras
+   ```
+3) Create a base Stable diffusion Model
 ```python
 new_model = keras_cv.models.StableDiffusion(img_width=512, img_height=512)
  ```
-2) Load Weights from our h5 model which is hosted on Hugging Face [here](https://huggingface.co/morj/renaissance/blob/main/stable_diffusion_renaissance.h5):
+4) Load Weights from our h5 model which is hosted on Hugging Face [here](https://huggingface.co/morj/renaissance/blob/main/stable_diffusion_renaissance.h5):
 ```python
 new_model.diffusion_model.load_weights('/path/to/file/renaissance_model.h5')
 ```
-3) Create a variable to hold the values of the to-be-generated image such as prompt, batch size, iterations, and seed
+5) Create a variable to hold the values of the to-be-generated image such as prompt, batch size, iterations, and seed
 ```python 
 img = new_model.text_to_image(
        prompt="A woman with an enigmatic smile against a dark background",
@@ -22,7 +96,7 @@ img = new_model.text_to_image(
        seed=123,  # Set this to always get the same image from the same prompt
     )
 ```
-4) Display using the function:
+6) Display using the function:
 ```python
 def plot_images(images):
     plt.figure(figsize=(5, 5))
@@ -31,3 +105,6 @@ def plot_images(images):
     
 plot_images(img)
 ```
+
+
+For more details, please check out the Wiki section of this repository also available [here](https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/wiki).
