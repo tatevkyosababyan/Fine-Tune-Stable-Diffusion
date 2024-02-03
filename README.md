@@ -49,6 +49,8 @@
 - If you'd like to see more regarding our process, results, or additional information about this project, please navigate to the Wiki section of this repository also available [here](https://github.com/martingasparyan/Fine-Tune-Stable-Diffusion/wiki).
 
 **Model Details** 
+- Model is available at https://huggingface.co/morj/renaissance
+- Dataset is available at https://huggingface.co/datasets/morj/renaissance_portraits
 - Developed by: Martin Gasparyan and Tatev Kyosababyan
 - Model type: Diffusion-based text-to-image generative model
 - Model Description: This model can be used to generate and modify images based on text prompts. It is a Latent Diffusion Model that uses a fixed, pretrained text encoder (OpenCLIP-ViT/H) to generate high-quality - Reniassance portraits from textual prompts. This model uses the KerasCV implementation of stability.ai's text-to-image model, Stable Diffusion. 
